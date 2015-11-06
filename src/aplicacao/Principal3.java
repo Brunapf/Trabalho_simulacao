@@ -24,13 +24,14 @@ public class Principal3 {
 		EntityManager em = EM.getLocalEm();
 		em.getTransaction().begin();
 		//String str = "Banda";
-		int str = minimo;
+		int str1 = minimo;
 		int str2 = maximo;
-		String jpql = "select u from Banda u where u.preco between arg1 and arg2";
+		
+		String jpql = "select u from Banda u where u.preco between :str1 and :?str2";
 		
 		Query consulta = em.createQuery(jpql);
-		consulta.setParameter("arg1", str);
-		consulta.setParameter("arg2", str2);
+		consulta.setParameter("str1",2);
+		consulta.setParameter("str2", 6);
 		
 		
 		
